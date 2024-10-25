@@ -12,3 +12,10 @@
 ### For more information
 
 * [Contact Mr Chetan](https://mrchetan.com/)
+
+mklink /D "C:\Users\1cyar\.code\extensions\yar-goto-laravel-components" "F:\test\gotolc"
+rmdir "C:\Users\1cyar\.vscode\extensions\goto-laravel-components"
+code --install-extension F:\test\gotolc
+
+npm install -g vsce
+npm vsce package
