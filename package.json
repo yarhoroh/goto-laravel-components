@@ -1,11 +1,11 @@
 {
-	"name": "goto-laravel-components",
-	"displayName": "Laravel Goto Components",
+	"name": "yar-goto-laravel-components",
+	"displayName": "A Laravel Goto Components",
 	"description": "Laravel Goto Components is a Visual Studio Code extension that allows you to quickly jump to components in your Laravel project.",
 	"icon": "logo.png",
-	"version": "1.1.0",
-	"publisher": "MrChetan",
-	"repository": "https://github.com/mrchetan/goto-laravel-components.git",
+	"version": "1.1.1",
+	"publisher": "YaroslavHoroh",
+	"repository": "https://github.com/yarhoroh/goto-laravel-components",
 	"engines": {
 		"vscode": "^1.80.0"
 	},
@@ -36,12 +36,12 @@
             "type": "object",
             "title": "Laravel goto components configuration",
             "properties": {
-                "laravel_goto_components.regex": {
+                "yar_laravel_goto_components.regex": {
                     "type": "string",
                     "default": "(?<=<x-|</x-)(?!slot)[^\\/\\s>]+",
                     "description": "Custom regex for matching components"
                 },
-                "laravel_goto_components.custom_path": {
+                "yar_laravel_goto_components.custom_path": {
                     "type": "string",
 	                  "default": "",
                     "description": "Custom path for components"

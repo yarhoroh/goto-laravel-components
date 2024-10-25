@@ -16,7 +16,7 @@ export default class HoverProvider implements BaseHoverProvider {
         doc: TextDocument,
         position: Position
     ): ProviderResult<Hover> {
-        const config = workspace.getConfiguration("laravel_goto_components");
+        const config = workspace.getConfiguration("yar_laravel_goto_components");
         const regex = new RegExp(config.regex);
         const custom_path = config.custom_path;
         const range = doc.getWordRangeAtPosition(position, regex);

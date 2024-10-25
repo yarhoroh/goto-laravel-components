@@ -19,7 +19,7 @@ export default class LinkProvider implements DocumentLinkProvider {
     ): ProviderResult<DocumentLink[]> {
         const documentLinks: DocumentLink[] = [];
 
-        const config = workspace.getConfiguration("laravel_goto_components");
+        const config = workspace.getConfiguration("yar_laravel_goto_components");
         const workspacePath = workspace.getWorkspaceFolder(doc.uri)?.uri.fsPath;
         const custom_path = config.custom_path;
         const reg = new RegExp(config.regex);
