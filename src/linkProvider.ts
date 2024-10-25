@@ -21,7 +21,7 @@ export default class LinkProvider implements DocumentLinkProvider {
 
         const config = workspace.getConfiguration("laravel_goto_components");
         const workspacePath = workspace.getWorkspaceFolder(doc.uri)?.uri.fsPath;
-
+        const custom_path = config.custom_path;
         const reg = new RegExp(config.regex);
         let linesCount = doc.lineCount;
 
@@ -33,17 +33,17 @@ export default class LinkProvider implements DocumentLinkProvider {
             if (result !== null) {
                 for (let componentName of result) {
                     componentName = componentName.replace('>', '');
-                    let componentPath = nameToPath(componentName);
+                    let componentPath = nameToPath(componentName, custom_path);
 
                     if (!existsSync(workspacePath + componentPath)) {
-                        let newComponentPath = nameToIndexPath(componentName);
+                        let newComponentPath = nameToIndexPath(componentName, custom_path);
 
                         if (existsSync(workspacePath + newComponentPath)) {
                             componentPath = newComponentPath;
                         }
 
                         if (!existsSync(workspacePath + componentPath)) {
-                            newComponentPath = nameToViewPath(componentName, workspacePath);
+                            newComponentPath = nameToViewPath(componentName, workspacePath, custom_path);
 
                             if (existsSync(workspacePath + newComponentPath)) {
                                 componentPath = newComponentPath;

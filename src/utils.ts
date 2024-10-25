@@ -1,14 +1,14 @@
 import { readFileSync, existsSync } from "fs";
 
-export function nameToPath(path: string): string {
-    return `/resources/views/components/${path.replace(/\./g, "/")}.blade.php`;
+export function nameToPath(path: string, custom_path: string): string {
+    return `/${custom_path}/${path.replace(/\./g, "/")}.blade.php`;
 }
 
-export function nameToIndexPath(path: string): string {
-    return `/resources/views/components/${path.replace(/\./g, "/")}/index.blade.php`;
+export function nameToIndexPath(path: string, custom_path: string): string {
+    return `/${custom_path}/${path.replace(/\./g, "/")}/index.blade.php`;
 }
 
-export function nameToViewPath(path: string, workspacePath: string | undefined): string {
+export function nameToViewPath(path: string, workspacePath: string | undefined, custom_path: string): string {
     const componentName = path.replace(/\./g, "/");
 
     try {
@@ -22,7 +22,7 @@ export function nameToViewPath(path: string, workspacePath: string | undefined):
         fileName = fileName?.replace(/[-_]/g, " ").replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))).replace(/\s/g, "");
 
         // get file path
-        const filePath = `${workspacePath}/app/View/Components/${componentPath}${fileName}.php`;
+        const filePath = `${workspacePath}/${custom_path}/${componentPath}${fileName}.php`;
 
         // if file not exists, return componentName
         if (!existsSync(filePath)) {
